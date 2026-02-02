@@ -81,7 +81,21 @@ h1{
 </head>
 <body>
 <!-- Música autoplay -->
-<iframe width="0" height="0" src="https://www.youtube.com/embed/9nOrPNxjvck?autoplay=1&mute=0&loop=1&playlist=9nOrPNxjvck" frameborder="0" allow="autoplay" allowfullscreen style="display:none"></iframe>
+<iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/9nOrPNxjvck?autoplay=1&mute=1&loop=1&playlist=9nOrPNxjvck" frameborder="0" allow="autoplay" allowfullscreen style="display:none"></iframe>
+
+<div id="musicOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <button style="padding:18px 28px;border-radius:50px;border:none;font-size:18px;font-weight:600;cursor:pointer;box-shadow:0 0 20px rgba(255,255,255,0.4);">🎶 Toque para ouvir a música ❤️</button>
+</div>
+
+<script>
+const overlay = document.getElementById('musicOverlay');
+const player = document.getElementById('musicPlayer');
+
+overlay.addEventListener('click', ()=>{
+  player.src = "https://www.youtube.com/embed/9nOrPNxjvck?autoplay=1&mute=0&loop=1&playlist=9nOrPNxjvck";
+  overlay.style.display = 'none';
+});
+</script>
 
 <div class="hearts" id="hearts"></div>
 
